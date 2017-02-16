@@ -2,3 +2,5 @@
 packages/
 Notes/bin/
 Notes/obj/
+Notes.Data/obj/
+Notes.Data/bin/

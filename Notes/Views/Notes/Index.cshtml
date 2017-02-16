@@ -1,4 +1,4 @@
-﻿@model System.Collections.Generic.List<Notes.Models.Note>
+﻿@model System.Collections.Generic.List<Notes.Data.Models.Note>
 
 @{
     Layout = null;
@@ -16,8 +16,8 @@
         {
             <span>@note.Id</span>
             <span>@note.Head</span>
-            <hr/>
             <span>@note.Body</span>
+            <hr/>
             <br/><br/>
         }
     </div>

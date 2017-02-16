@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Ninject;
+using Ninject.Web.Common;
+using Notes.Data.Context;
 using Notes.Interfaces;
 using Notes.Services;
 
@@ -29,6 +31,7 @@ namespace Notes
 
         private void AddBindings()
         {
+            _kernel.Bind<NotesContext>().ToSelf().InRequestScope();
             _kernel.Bind<INoteService>().To<NoteService>();
         }
     }

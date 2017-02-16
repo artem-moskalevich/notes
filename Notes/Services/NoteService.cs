@@ -1,14 +1,24 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using Notes.Data.Context;
+using Notes.Data.Models;
 using Notes.Interfaces;
-using Notes.Models;
 
 namespace Notes.Services
 {
     public class NoteService: INoteService
     {
-        List<Note> INoteService.Get()
+        private readonly NotesContext _context;
+
+        public NoteService(NotesContext context)
         {
-            return new List<Note>()
+            _context = context;
+        }
+
+        public List<Note> Get()
+        {
+            return _context.Notes.ToList();
+            /*return new List<Note>()
             {
                 new Note()
                 {
@@ -28,7 +38,7 @@ namespace Notes.Services
                     Head = "Head-3",
                     Body = "Body-3"
                 }
-            };
+            };*/
         }
 
         public void Put()
