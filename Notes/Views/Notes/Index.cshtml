@@ -1,0 +1,25 @@
+﻿@model System.Collections.Generic.List<Notes.Models.Note>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Notes</title>
+</head>
+<body>
+    <div>
+        @foreach (var note in Model)
+        {
+            <span>@note.Id</span>
+            <span>@note.Head</span>
+            <hr/>
+            <span>@note.Body</span>
+            <br/><br/>
+        }
+    </div>
+</body>
+</html>
