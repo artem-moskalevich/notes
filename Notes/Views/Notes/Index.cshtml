@@ -3,22 +3,26 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 
 <html>
 <head>
     <title>Notes</title>
+    <link rel="stylesheet" type="text/css" href="~/Styles/NoteStyles.css" />
 </head>
 <body>
+    @Html.Partial("Create", new Notes.Data.Models.Note())
+    <br /><br /><br />
     <div>
         @foreach (var note in Model)
         {
-            <span>@note.Id</span>
-            <span>@note.Head</span>
-            <span>@note.Body</span>
-            <hr/>
-            <br/><br/>
+            <div class="note">
+                <span>@note.Head</span>
+                <hr/>
+                <span>@note.Body</span>
+                <br />
+            </div>
+            <br /><br />
         }
     </div>
 </body>

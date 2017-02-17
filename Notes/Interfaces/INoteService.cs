@@ -6,7 +6,7 @@ namespace Notes.Interfaces
     public interface INoteService
     {
         List<Note> Get();
-        void Put();
+        void Save(Note note);
         void Synchronize();
     }
 }

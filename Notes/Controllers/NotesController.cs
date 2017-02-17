@@ -17,5 +17,18 @@ namespace Notes.Controllers
             var notes = _noteService.Get();
             return View(notes);
         }
+
+        [HttpPost]
+        public ActionResult Create(Notes.Data.Models.Note note)
+        {
+            _noteService.Save(note);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Sync()
+        {
+            _noteService.Synchronize();
+            return RedirectToAction("Index");
+        }
     }
 }

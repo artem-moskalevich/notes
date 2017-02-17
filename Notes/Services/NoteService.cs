@@ -9,6 +9,7 @@ namespace Notes.Services
     public class NoteService: INoteService
     {
         private readonly NotesContext _context;
+        private string key = "5y90jgjgvesl";
 
         public NoteService(NotesContext context)
         {
@@ -18,32 +19,12 @@ namespace Notes.Services
         public List<Note> Get()
         {
             return _context.Notes.ToList();
-            /*return new List<Note>()
-            {
-                new Note()
-                {
-                    Id = 1,
-                    Head = "Head-1",
-                    Body = "Body-1"
-                },
-                new Note()
-                {
-                    Id = 2,
-                    Head = "Head-2",
-                    Body = "Body-2"
-                },
-                new Note()
-                {
-                    Id = 3,
-                    Head = "Head-3",
-                    Body = "Body-3"
-                }
-            };*/
         }
 
-        public void Put()
+        public void Save(Note note)
         {
-            throw new System.NotImplementedException();
+            _context.Notes.Add(note);
+            _context.SaveChanges();
         }
 
         public void Synchronize()
